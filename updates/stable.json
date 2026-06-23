@@ -1,16 +1,19 @@
 {
   "app_id": "cuma",
   "channel": "stable",
-  "version": "1.081.2",
+  "version": "1.100.0",
   "minimum_supported_version": "1.080.0",
   "mandatory": false,
-  "published_at": "2026-06-22",
-  "download_url": "https://github.com/soldiego/CUMA/releases/download/v1.081.2/CUMA_windows.zip",
-  "sha256": "8675FE9565FDC5C15CF09A0C1CC7E2690CCC96DB25B010EA4B65DD98DD1ADD98",
-  "size_bytes": 53073580,
+  "published_at": "2026-06-23",
+  "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip",
+  "sha256": "",
+  "size_bytes": 0,
   "release_notes": [
-    "Primeira versão preparada para lançamento com configurações em %APPDATA%\\CUMA.",
-    "Pacote de lançamento limpo.",
-    "Sistema de atualização preparado por manifesto JSON no GitHub."
+    "Versão 1.100.0 do CUMA consolidando perfis e leitura, otimização E-ink e experiência avançada.",
+    "Perfis Kindle, Kobo e reMarkable inspirados no Kindle Comic Converter.",
+    "Ordem de leitura Ocidental/Mangá, ordenação natural, corte de margens, página dupla, presets E-ink e prévia antes/depois.",
+    "CBZ/ZIP nativos e CBR/RAR/7Z via 7-Zip instalado no Windows.",
+    "Manifesto oficial configurado para https://raw.githubusercontent.com/soldieg/CUMA/main/updates/stable.json.",
+    "Após publicar o ZIP final na Release Stable, use o workflow ou o script local para preencher sha256 e size_bytes."
   ]
 }
