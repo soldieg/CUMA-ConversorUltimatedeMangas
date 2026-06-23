@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="[./assets/cuma_logo.png](https://github.com/soldiego/CUMA/blob/a87a2b13093fca8fadb177128a321371958eddb9/cuma_logo.png)" alt="Logo CUMA" width="120">
+  <img src="assets/cuma_logo.png" alt="Logo CUMA" width="120">
 </p>
 
 # CUMA
