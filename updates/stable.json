@@ -1,0 +1,16 @@
+{
+  "app_id": "cuma",
+  "channel": "stable",
+  "version": "1.081.2",
+  "minimum_supported_version": "1.080.0",
+  "mandatory": false,
+  "published_at": "2026-06-22",
+  "download_url": "https://github.com/soldiego/CUMA/releases/download/v1.081.2/CUMA_windows.zip",
+  "sha256": "8675FE9565FDC5C15CF09A0C1CC7E2690CCC96DB25B010EA4B65DD98DD1ADD98",
+  "size_bytes": 53073580,
+  "release_notes": [
+    "Primeira versão preparada para lançamento com configurações em %APPDATA%\\CUMA.",
+    "Pacote de lançamento limpo.",
+    "Sistema de atualização preparado por manifesto JSON no GitHub."
+  ]
+}
