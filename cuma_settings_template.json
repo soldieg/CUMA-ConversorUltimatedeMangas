@@ -65,7 +65,7 @@
     "resume_processing": false,
     "silent_mode": false,
     "xteink_output_dir": "limpos/Converter",
-    "update_manifest_url": "https://raw.githubusercontent.com/SEU_USUARIO/CUMA/main/updates/stable.json",
+    "update_manifest_url": "https://raw.githubusercontent.com/soldieg/CUMA/main/updates/stable.json",
     "update_channel": "stable"
   },
   "interface_colors": {
@@ -352,7 +352,7 @@
     }
   },
   "version_state": {
-    "current_version": "1.081.2",
+    "current_version": "1.100.7",
     "base_version": "1.080.0",
     "schema": {
       "grande": {
@@ -398,7 +398,7 @@
     "events": [
       {
         "update_id": "base_1_080_0",
-        "version": "1.080.0",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "base",
         "description": "Marco base definido pelo usuário após V11 e reaplicação dos hotfixes.",
@@ -406,7 +406,7 @@
       },
       {
         "update_id": "ui_icon_themes_sidebar_scrollbar_1081",
-        "version": "1.081.0",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "pequena",
         "description": "Temas baseados no ícone do CUMA, tela inicial Limpar por sessão e refinamento visual de sidebar, abas, caixas e barras de rolagem.",
@@ -414,7 +414,7 @@
       },
       {
         "update_id": "release_stability_manual_debug_1081_1",
-        "version": "1.081.1",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "pouca",
         "description": "Consolidação de lançamento: relatório único, manual TXT completo, manual interativo curto, escrita de metadados idempotente e melhorias de memória em PDF/XTCH.",
@@ -422,21 +422,45 @@
       },
       {
         "update_id": "storage_consolidation_user_data_1081_2",
-        "version": "1.081.2",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "pouca",
         "description": "Consolidação dos JSONs em cuma_settings.json, dados graváveis em pasta de usuário, limpeza de pacote e manual atualizado.",
         "timestamp": "2026-06-22T00:00:00"
+      },
+      {
+        "update_id": "roadmap_kcc_full_consolidation_11000",
+        "version": "1.100.4",
+        "base_version": "1.080.0",
+        "scale": "grande",
+        "description": "Consolida 1.082.0, 1.090.0 e 1.100.0.",
+        "timestamp": "2026-06-23T00:00:00"
+      },
+      {
+        "update_id": "reorganizacao_limpar_converter_conversoes_dinamicas_11001",
+        "version": "1.100.4",
+        "base_version": "1.080.0",
+        "scale": "pouca",
+        "description": "Move otimização de leitura/E-ink para Limpar e adiciona conversões dinâmicas por tipo no Converter.",
+        "timestamp": "2026-06-23T00:00:00"
+      },
+      {
+        "update_id": "manuais_historico_11007",
+        "version": "1.100.7",
+        "base_version": "1.080.0",
+        "scale": "pouca",
+        "description": "Manuais e histórico consolidados; arquivo ATUALIZACOES_DESDE_1.100.2.txt adicionado.",
+        "timestamp": "2026-06-23T00:00:00"
       }
     ]
   },
   "version_history": {
     "base_version": "1.080.0",
-    "current_version": "1.081.2",
+    "current_version": "1.100.7",
     "events": [
       {
         "update_id": "base_1_080_0",
-        "version": "1.080.0",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "base",
         "description": "Marco base definido pelo usuário após V11 e reaplicação dos hotfixes.",
@@ -444,7 +468,7 @@
       },
       {
         "update_id": "ui_icon_themes_sidebar_scrollbar_1081",
-        "version": "1.081.0",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "pequena",
         "description": "Temas baseados no ícone do CUMA, tela inicial Limpar por sessão e refinamento visual de sidebar, abas, caixas e barras de rolagem.",
@@ -452,7 +476,7 @@
       },
       {
         "update_id": "release_stability_manual_debug_1081_1",
-        "version": "1.081.1",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "pouca",
         "description": "Consolidação de lançamento: relatório único, manual TXT completo, manual interativo curto, escrita de metadados idempotente e melhorias de memória em PDF/XTCH.",
@@ -460,27 +484,103 @@
       },
       {
         "update_id": "storage_consolidation_user_data_1081_2",
-        "version": "1.081.2",
+        "version": "1.100.4",
         "base_version": "1.080.0",
         "scale": "pouca",
         "description": "Consolidação dos JSONs em cuma_settings.json, dados graváveis em pasta de usuário, limpeza de pacote e manual atualizado.",
         "timestamp": "2026-06-22T00:00:00"
+      },
+      {
+        "update_id": "reorganizacao_limpar_converter_conversoes_dinamicas_11001",
+        "version": "1.100.4",
+        "base_version": "1.080.0",
+        "scale": "pouca",
+        "description": "Reorganização Limpar/Converter e conversões dinâmicas por tipo de arquivo.",
+        "timestamp": "2026-06-23T00:00:00"
+      },
+      {
+        "update_id": "manuais_historico_11007",
+        "version": "1.100.7",
+        "base_version": "1.080.0",
+        "scale": "pouca",
+        "description": "Manuais e histórico consolidados; arquivo ATUALIZACOES_DESDE_1.100.2.txt adicionado.",
+        "timestamp": "2026-06-23T00:00:00"
       }
     ]
   },
   "version": {
     "name": "CUMA - Conversor Ultimate de Mangás",
-    "version": "1.081.2",
+    "version": "1.100.9",
     "base_version": "1.080.0",
     "build": "storage_consolidation_1_081_2",
-    "notes": "Configurações consolidadas em cuma_settings.json, dados graváveis movidos para a pasta do usuário e pacote de distribuição mais limpo.",
+    "notes": "Correção do layout do atualizador, rodapé fixo e build Windows CUMA_windows.",
     "versioning": {
       "grande": "incrementa o primeiro número: 1.080.0 -> 2.000.0",
       "media": "soma 10 no bloco central: 1.080.0 -> 1.090.0",
       "pequena": "soma 1 no bloco central: 1.080.0 -> 1.081.0",
       "pouca": "soma 1 no terceiro número: 1.080.0 -> 1.080.1"
     },
-    "updated_at": "2026-06-22"
+    "updated_at": "2026-06-23"
   },
-  "runtime": {}
+  "runtime": {},
+  "updates": {
+    "channel": "stable",
+    "manifest_url": "https://raw.githubusercontent.com/soldieg/CUMA/main/updates/stable.json",
+    "last_checked_at": "",
+    "last_available_version": "",
+    "auto_download": false,
+    "verify_sha256": true,
+    "release_tag": "Stable",
+    "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip"
+  },
+  "version_metadata": {
+    "name": "CUMA - Conversor Ultimate de Mangás",
+    "version": "1.100.9",
+    "base_version": "1.080.0",
+    "build": "update_dialog_fixed_footer_11009",
+    "notes": "Janela de atualizações com botões fixos e script de informações da release.",
+    "updated_at": "2026-06-23"
+  },
+  "advanced_processing": {
+    "reading_order": "Ocidental",
+    "auto_crop": false,
+    "auto_crop_strength": "Normal",
+    "remove_page_numbers": false,
+    "split_double_pages": false,
+    "split_keep_original": false,
+    "webtoon_split": false,
+    "webtoon_max_ratio": 2.8,
+    "image_preset": "Original",
+    "cbz_zip_input": true,
+    "rar_7z_input": true,
+    "metadata": {
+      "title": "",
+      "creator": "",
+      "series": "",
+      "volume": "",
+      "language": "pt-BR",
+      "description": ""
+    }
+  },
+  "converter_options": {
+    "dynamic_by_file_type": true,
+    "pdf_to_epub": false,
+    "pdf_to_xtch": true,
+    "pdf_to_cbz": false,
+    "pdf_to_images": false,
+    "epub_to_xtch": true,
+    "epub_to_pdf": false,
+    "archive_to_epub": false,
+    "archive_to_xtch": true,
+    "archive_to_pdf": false,
+    "image_to_pdf": true,
+    "image_to_epub": false,
+    "image_to_xtch": false
+  },
+  "converter": {
+    "mode": "pure_conversion_no_visual_reprocessing"
+  },
+  "versioning": {
+    "current_version": "1.100.12"
+  }
 }

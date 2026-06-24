@@ -2,7 +2,7 @@
 
 from PyInstaller.utils.hooks import collect_data_files
 
-# CUMA 1.100.11
+# CUMA 1.100.12
 # Dados editáveis do usuário não são empacotados como JSONs soltos.
 # O app cria/usa %APPDATA%\CUMA\cuma_settings.json quando compilado.
 datas = [
@@ -50,7 +50,7 @@ updater_a = Analysis(
     pathex=[],
     binaries=[],
     datas=[],
-    hiddenimports=[],
+    hiddenimports=['tkinter'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

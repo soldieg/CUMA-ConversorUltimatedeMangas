@@ -1,24 +1,36 @@
 CUMA - Conversor Ultimate de Mangás
-Versão: 1.100.8
+Versão: 1.100.12
 
 COMO USAR
 1. Extraia o ZIP inteiro.
 2. Abra cuma.exe.
 3. Não apague a pasta _internal.
 4. O manual completo está em manual_do_programa.txt.
-5. O resumo das mudanças recentes está em ATUALIZACOES_DESDE_1.100.2.txt.
-6. O relatório das correções está em AUDITORIA_CORRECOES_1.100.8.txt.
 
-CORREÇÕES DA 1.100.8
-- Corrigido CBZ/ZIP no Converter.
-- Corrigido CBR/RAR/7Z no Converter quando 7-Zip estiver instalado.
-- EPUB, CBZ e PDFs gerados agora usam escrita temporária/atômica.
-- Ferramentas validam arquivos existentes antes de processar.
-- O pacote não inclui .cuma_user_data/cuma_settings.json.
-- O build prepara o manifesto de atualização com SHA256/tamanho do ZIP final.
+CORREÇÃO DA 1.100.10
+- Rodapé da janela de atualização corrigido para ficar sempre visível.
+- Botão Cancelar sempre visível.
+- Botão Baixar aparece quando há atualização disponível.
+- Caixa de detalhes com barra de rolagem vertical.
 
-DADOS DO USUÁRIO
-As configurações ficam em:
-%APPDATA%\CUMA\cuma_settings.json
 
-Não distribua a pasta limpos/, arquivos convertidos, CUMA.log, erro.txt, debug_completo_cuma.txt ou .cuma_user_data.
+ATUALIZADOR AUTOMÁTICO 1.100.12
+- Use "Procurar atualizações" > "Atualizar agora" para baixar e instalar automaticamente.
+- Use "Baixar manualmente" se quiser decidir quando instalar.
+- A instalação automática fecha o CUMA para substituir os arquivos com segurança.
+- O SHA256 do pacote precisa estar preenchido no updates/stable.json.
+
+
+===============================================================================
+CUMA 1.100.12 - ATUALIZADOR EXTERNO E PACOTE ORGANIZADO
+===============================================================================
+
+Nesta versão, o botão "Procurar atualizações" do CUMA principal apenas abre o
+cuma_updater.exe. A verificação no GitHub, a janela com "Atualizar agora" e
+"Baixar manualmente", o download, a validação SHA256, o fechamento do CUMA e a
+instalação ficam dentro do atualizador externo.
+
+O pacote de desenvolvimento também foi separado em pastas:
+- GitHub: arquivos para atualizar o repositório.
+- arquivos necessários: BATs para rodar e compilar.
+- ZIP final: local onde o CUMA_windows.zip será gerado.

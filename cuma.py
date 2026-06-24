@@ -62,7 +62,7 @@ except Exception:
     DND_AVAILABLE = False
 
 APP_NAME = "CUMA"
-APP_VERSION = "1.100.11 CUMA"
+APP_VERSION = "1.100.12 CUMA"
 CONFIG_FILE = "config_cuma.json"
 LOG_FILE = "CUMA.log"
 MANUAL_FILE = "manual_do_programa.txt"
@@ -18947,15 +18947,15 @@ _cuma_11010_write_runtime_docs()
 
 
 # =============================================================================
-# CUMA 1.100.11 - ATUALIZADOR AUTOMÁTICO VIA GITHUB RELEASES
+# CUMA 1.100.12 - ATUALIZADOR AUTOMÁTICO VIA GITHUB RELEASES
 # =============================================================================
 # Mantém a opção manual e adiciona a opção automática:
 # - Atualizar agora: baixa o ZIP, valida SHA256, inicia cuma_updater.exe temporário,
 #   fecha o CUMA e deixa o atualizador substituir os arquivos.
 # - Baixar manualmente: abre o link da release para o usuário instalar quando quiser.
 
-CUMA_11011_UPDATE_ID = 'github_auto_updater_external_11011'
-CUMA_11011_VERSION = '1.100.11'
+CUMA_11012_UPDATE_ID = 'github_auto_updater_external_11012'
+CUMA_11012_VERSION = '1.100.12'
 
 
 def _cuma_auto_update_install_dir() -> Path:
@@ -19007,7 +19007,7 @@ def _cuma_auto_update_download_file(url: str, dest: Path, expected_size: int = 0
     dest.parent.mkdir(parents=True, exist_ok=True)
     req = urllib.request.Request(
         str(url),
-        headers={'User-Agent': 'CUMA-Auto-Updater/1.100.11'}
+        headers={'User-Agent': 'CUMA-Auto-Updater/1.100.12'}
     )
     downloaded = 0
     last_report = 0.0
@@ -19429,7 +19429,7 @@ def _cuma_show_themed_update_dialog(app, state='none', title='Procurar atualiza�
             pass
 
 
-def _cuma_check_updates_button_async_11011(self):
+def _cuma_check_updates_button_async_11012(self):
     if getattr(self, '_update_manifest_check_running', False):
         return
     self._update_manifest_check_running = True
@@ -19463,7 +19463,7 @@ def _cuma_check_updates_button_async_11011(self):
             import urllib.request
             req = urllib.request.Request(
                 manifest_url,
-                headers={'User-Agent': 'CUMA-Update-Checker/1.100.11'}
+                headers={'User-Agent': 'CUMA-Update-Checker/1.100.12'}
             )
             with urllib.request.urlopen(req, timeout=12) as resp:
                 remote = json.loads(resp.read().decode('utf-8'))
@@ -19472,7 +19472,7 @@ def _cuma_check_updates_button_async_11011(self):
                 raise ValueError('O manifesto remoto não parece ser do CUMA.')
 
             latest = str(remote.get('version', '') or '').strip()
-            current = str(globals().get('APP_DISPLAY_VERSION', '1.100.11') or '1.100.11').strip()
+            current = str(globals().get('APP_DISPLAY_VERSION', '1.100.12') or '1.100.12').strip()
             download_url = str(remote.get('download_url', '') or '').strip()
             remote_sha = str(remote.get('sha256', '') or '').strip()
             try:
@@ -19561,12 +19561,12 @@ def _cuma_check_updates_button_async_11011(self):
     threading.Thread(target=worker, daemon=True, name='CUMA-Update-Checker').start()
 
 
-def _cuma_11011_force_version() -> None:
+def _cuma_11012_force_version() -> None:
     try:
-        globals()['APP_DISPLAY_VERSION'] = CUMA_11011_VERSION
-        globals()['APP_VERSION'] = f'{CUMA_11011_VERSION} CUMA'
+        globals()['APP_DISPLAY_VERSION'] = CUMA_11012_VERSION
+        globals()['APP_VERSION'] = f'{CUMA_11012_VERSION} CUMA'
         globals()['CHANGELOG_LATEST'] = {
-            'version': CUMA_11011_VERSION,
+            'version': CUMA_11012_VERSION,
             'date': '2026-06-24',
             'items': [
                 'Adiciona atualização automática via GitHub Releases.',
@@ -19577,7 +19577,7 @@ def _cuma_11011_force_version() -> None:
         }
         if 'cuma_version_apply_globals' in globals():
             try:
-                cuma_version_apply_globals(CUMA_11011_VERSION)
+                cuma_version_apply_globals(CUMA_11012_VERSION)
             except Exception:
                 pass
         if 'cuma_version_load_state' in globals() and 'cuma_version_save_state' in globals():
@@ -19586,17 +19586,17 @@ def _cuma_11011_force_version() -> None:
                 events = state_data.get('events', [])
                 if not isinstance(events, list):
                     events = []
-                if not any(isinstance(e, dict) and e.get('update_id') == CUMA_11011_UPDATE_ID for e in events):
+                if not any(isinstance(e, dict) and e.get('update_id') == CUMA_11012_UPDATE_ID for e in events):
                     events.append({
-                        'update_id': CUMA_11011_UPDATE_ID,
-                        'version': CUMA_11011_VERSION,
+                        'update_id': CUMA_11012_UPDATE_ID,
+                        'version': CUMA_11012_VERSION,
                         'base_version': globals().get('CUMA_VERSION_BASE', '1.080.0'),
                         'scale': 'pouca',
                         'applied_at': datetime.now().isoformat(timespec='seconds'),
                         'description': 'Atualizador automático externo via GitHub Releases.',
                     })
                 state_data['events'] = events[-100:]
-                state_data['current_version'] = CUMA_11011_VERSION
+                state_data['current_version'] = CUMA_11012_VERSION
                 state_data['base_version'] = globals().get('CUMA_VERSION_BASE', '1.080.0')
                 cuma_version_save_state(state_data)
                 if '_cuma_version_write_public_files' in globals():
@@ -19607,25 +19607,25 @@ def _cuma_11011_force_version() -> None:
         pass
 
 
-def _cuma_install_auto_updater_11011() -> None:
+def _cuma_install_auto_updater_11012() -> None:
     try:
         _cuma_ensure_update_settings_defaults()
-        globals()['_cuma_check_updates_button'] = _cuma_check_updates_button_async_11011
+        globals()['_cuma_check_updates_button'] = _cuma_check_updates_button_async_11012
     except Exception as exc:
         try:
-            write_log(f'Instalação do atualizador automático 1.100.11: {exc}')
+            write_log(f'Instalação do atualizador automático 1.100.12: {exc}')
         except Exception:
             pass
 
 
-_cuma_11011_force_version()
-_cuma_install_auto_updater_11011()
+_cuma_11012_force_version()
+_cuma_install_auto_updater_11012()
 
 
-CUMA_11011_MANUAL_APPEND = """
+CUMA_11012_MANUAL_APPEND = """
 
 ===============================================================================
-19. ATUALIZADOR AUTOMÁTICO VIA GITHUB - 1.100.11
+19. ATUALIZADOR AUTOMÁTICO VIA GITHUB - 1.100.12
 ===============================================================================
 
 A janela "Procurar atualizações" agora possui duas opções quando há uma versão
@@ -19642,32 +19642,32 @@ compactar a release.
 """
 
 try:
-    CUMA_11011_PREVIOUS_MANUAL = globals().get('CUMA_11010_MANUAL_TEXT', '')
-    CUMA_11011_MANUAL_TEXT = (CUMA_11011_PREVIOUS_MANUAL or '') + CUMA_11011_MANUAL_APPEND
+    CUMA_11012_PREVIOUS_MANUAL = globals().get('CUMA_11010_MANUAL_TEXT', '')
+    CUMA_11012_MANUAL_TEXT = (CUMA_11012_PREVIOUS_MANUAL or '') + CUMA_11012_MANUAL_APPEND
 except Exception:
-    CUMA_11011_MANUAL_TEXT = CUMA_11011_MANUAL_APPEND
+    CUMA_11012_MANUAL_TEXT = CUMA_11012_MANUAL_APPEND
 
 
 def ensure_manual() -> Path:
     try:
-        manual_manual_text = CUMA_11011_MANUAL_TEXT or CUMA_11011_MANUAL_APPEND
+        manual_manual_text = CUMA_11012_MANUAL_TEXT or CUMA_11012_MANUAL_APPEND
         manual_path().write_text(manual_manual_text, encoding='utf-8')
     except Exception:
         pass
     return manual_path()
 
 
-def _cuma_11011_write_runtime_docs() -> None:
+def _cuma_11012_write_runtime_docs() -> None:
     try:
         ensure_manual()
     except Exception:
         pass
     try:
         readme = globals().get('CUMA_11010_README_TXT', '')
-        readme = readme.replace('Versão: 1.100.10', 'Versão: 1.100.11')
+        readme = readme.replace('Versão: 1.100.10', 'Versão: 1.100.12')
         readme += """
 
-ATUALIZADOR AUTOMÁTICO DA 1.100.11
+ATUALIZADOR AUTOMÁTICO DA 1.100.12
 - Botão Atualizar agora baixa, valida e instala a atualização automaticamente.
 - Botão Baixar manualmente continua disponível.
 - O CUMA é fechado para que os arquivos possam ser substituídos com segurança.
@@ -19677,7 +19677,150 @@ ATUALIZADOR AUTOMÁTICO DA 1.100.11
         pass
 
 
-_cuma_11011_write_runtime_docs()
+_cuma_11012_write_runtime_docs()
+
+
+# =============================================================================
+# CUMA 1.100.12 - BOTÃO DE ATUALIZAÇÃO VINCULADO AO APLICATIVO ATUALIZADOR
+# =============================================================================
+# O CUMA principal não baixa nem instala pacotes neste fluxo.
+# O botão "Procurar atualizações" apenas abre o cuma_updater.exe em modo
+# verificação. O atualizador externo consulta o stable.json, mostra as opções
+# "Atualizar agora" e "Baixar manualmente", baixa, valida, fecha o CUMA e instala.
+
+CUMA_11012_EXTERNAL_UPDATE_ID = 'external_updater_button_link_11012'
+CUMA_11012_VERSION = '1.100.12'
+
+
+def _cuma_11012_install_dir() -> Path:
+    try:
+        if getattr(sys, 'frozen', False):
+            return Path(sys.executable).resolve().parent
+    except Exception:
+        pass
+    try:
+        return Path(__file__).resolve().parent
+    except Exception:
+        return app_dir()
+
+
+def _cuma_11012_main_exe_name() -> str:
+    try:
+        if getattr(sys, 'frozen', False):
+            return Path(sys.executable).name
+    except Exception:
+        pass
+    return 'cuma.exe'
+
+
+def _cuma_11012_updater_command(manifest_url: str) -> list[str]:
+    install_dir = _cuma_11012_install_dir()
+    current_version = str(globals().get('APP_DISPLAY_VERSION', CUMA_11012_VERSION) or CUMA_11012_VERSION).strip()
+
+    updater_exe = install_dir / 'cuma_updater.exe'
+    updater_py = install_dir / 'cuma_updater.py'
+
+    if updater_exe.exists():
+        cmd = [str(updater_exe)]
+    elif updater_py.exists():
+        cmd = [sys.executable, str(updater_py)]
+    else:
+        raise RuntimeError(
+            'Não encontrei o aplicativo de atualização.\n\n'
+            f'Esperado:\n{updater_exe}\n\n'
+            'Compile novamente usando "criar_exe_windows_e_zip.bat" para incluir o cuma_updater.exe.'
+        )
+
+    cmd.extend([
+        '--check',
+        '--manifest-url', str(manifest_url or CUMA_DEFAULT_UPDATE_MANIFEST_URL),
+        '--current-version', current_version,
+        '--install-dir', str(install_dir),
+        '--main-pid', str(os.getpid()),
+        '--main-exe-name', _cuma_11012_main_exe_name(),
+    ])
+    return cmd
+
+
+def _cuma_check_updates_button_external_11012(self):
+    """Abre o atualizador externo. A lógica de update fica fora do CUMA."""
+    if getattr(self, '_external_update_launcher_running', False):
+        return
+
+    self._external_update_launcher_running = True
+    btn = getattr(self, 'update_btn', None)
+    try:
+        if btn is not None:
+            btn.configure(state='disabled', text='Abrindo atualizador...')
+    except Exception:
+        pass
+
+    def restore_button():
+        self._external_update_launcher_running = False
+        try:
+            if btn is not None:
+                btn.configure(state='normal', text='Procurar atualizações')
+        except Exception:
+            pass
+
+    try:
+        try:
+            _cuma_ensure_update_settings_defaults()
+        except Exception:
+            pass
+
+        try:
+            manifest_url = _cuma_update_manifest_url_from_settings()
+        except Exception:
+            manifest_url = CUMA_DEFAULT_UPDATE_MANIFEST_URL
+
+        cmd = _cuma_11012_updater_command(manifest_url)
+
+        flags = 0
+        if os.name == 'nt':
+            flags = 0x00000008 | 0x00000200  # DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP
+
+        subprocess.Popen(
+            cmd,
+            cwd=str(_cuma_11012_install_dir()),
+            close_fds=True,
+            creationflags=flags,
+        )
+
+        try:
+            self.root.after(1200, restore_button)
+        except Exception:
+            restore_button()
+    except Exception as exc:
+        restore_button()
+        try:
+            write_log(f'Falha ao abrir o atualizador externo 1.100.12: {exc}')
+        except Exception:
+            pass
+        try:
+            messagebox.showerror(
+                'Procurar atualizações',
+                _cuma_update_safe_text(exc, 'Não foi possível abrir o aplicativo de atualização.')
+            )
+        except Exception:
+            pass
+
+
+def _cuma_11012_force_version_and_external_updater() -> None:
+    try:
+        globals()['APP_DISPLAY_VERSION'] = CUMA_11012_VERSION
+        globals()['APP_VERSION'] = f'{CUMA_11012_VERSION} CUMA'
+        globals()['_cuma_check_updates_button'] = _cuma_check_updates_button_external_11012
+        if 'cuma_version_apply_globals' in globals():
+            try:
+                cuma_version_apply_globals(CUMA_11012_VERSION)
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+
+_cuma_11012_force_version_and_external_updater()
 
 
 if __name__ == '__main__':
