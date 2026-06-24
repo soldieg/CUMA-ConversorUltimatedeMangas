@@ -2,7 +2,7 @@
   "app_id": "cuma",
   "channel": "stable",
   "version": "1.100.8",
-  "minimum_supported_version": "1.100.8",
+  "minimum_supported_version": "1.100.0",
   "mandatory": false,
   "published_at": "2026-06-23",
   "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip",
