@@ -1,19 +1,22 @@
 {
   "app_id": "cuma",
   "channel": "stable",
-  "version": "1.100.11",
+  "version": "1.100.12",
   "minimum_supported_version": "1.080.0",
   "mandatory": false,
-  "published_at": "2026-06-24T03:38:36Z",
-  "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip",
-  "sha256": "C9B23DCFCFD6E9ACA319CB8CEC7C25F3ADDEB413AB430EEBC3D7445A904B1BEA",
-  "size_bytes": 62202910,
+  "published_at": "2026-06-24T04:06:54Z",
+  "download_url": "https://github.com/soldieg/CUMA/releases/download/CUMA-v1.100.12/CUMA_windows.zip",
+  "sha256": "6FC4A3304DBE0956A08F582BD15EC7E7C4AB00F6C6C8DBE02B0D6E93A7EF9BC0",
+  "size_bytes": 78900388,
   "release_notes": [
-    "Adiciona o botão \"Atualizar agora\" na janela de atualizações.",
-    "Mantém o botão \"Baixar manualmente\" para o usuário instalar quando preferir.",
-    "Baixa o pacote CUMA_windows.zip pelo link do stable.json.",
-    "Valida o SHA256 antes de instalar automaticamente.",
-    "Inicia o cuma_updater.exe externo, fecha o CUMA e substitui os arquivos com segurança.",
-    "Mantém backup da versão anterior ao aplicar a atualização."
+    "Novidades principais:",
+    "Estrutura do pacote de desenvolvimento reorganizada por pastas:",
+    "GitHub: arquivos que você pode copiar para o repositório.",
+    "arquivos necessários: BATs para rodar o CUMA e gerar EXE/ZIP.",
+    "ZIP final: local onde o CUMA_windows.zip será gerado.",
+    "O botão \"Procurar atualizações\" do CUMA agora fica vinculado ao aplicativo de atualização.",
+    "O CUMA principal apenas chama o cuma_updater.exe.",
+    "O cuma_updater.exe faz a verificação no GitHub, mostra a janela de atualização, baixa o ZIP, valida SHA256, fecha o CUMA e instala.",
+    "A opção \"Baixar manualmente\" continua disponível para o usuário instalar depois."
   ]
 }
