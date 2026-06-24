@@ -18,4 +18,5 @@
     "Build BAT agora copia documentação recente e prepara manifesto com SHA256/tamanho.",
     "requirements.txt agora usa faixas de versão.",
     "Versionamento, manual e histórico alinhados com 1.100.8."
+  ],
 }
