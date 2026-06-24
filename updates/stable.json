@@ -6,8 +6,8 @@
   "mandatory": false,
   "published_at": "2026-06-23",
   "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip",
-  "sha256": "73316C18A382F4EE34659AB4935248A4BA76A16D7DCA2A3140DAD8D4C7A78E2E",
-  "size_bytes": 52410023,
+  "sha256": "435114B489E4234E3A9FB0148D417F615B1981B9475BAA24F425B0D17C55C205",
+  "size_bytes": 53256023,
   "release_notes": [
     "CUMA 1.100.8 - Correções de auditoria",
     "Corrigido bug de CBZ/ZIP no Converter.",
