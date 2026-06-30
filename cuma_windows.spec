@@ -13,7 +13,7 @@ except Exception:
 
 hiddenimports = ['PIL._tkinter_finder', 'fitz', 'numpy', 'tkinterdnd2']
 
-# CUMA 1.100.29 - Windows one-folder autocontido.
+# CUMA 1.100.30 - Windows one-folder autocontido.
 a = Analysis(['cuma.py'], pathex=[], binaries=[], datas=datas, hiddenimports=hiddenimports,
              hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=[], noarchive=False)
 pyz = PYZ(a.pure, a.zipped_data)

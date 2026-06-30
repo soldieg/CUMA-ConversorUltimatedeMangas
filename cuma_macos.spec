@@ -13,7 +13,7 @@ except Exception:
 
 hiddenimports = ['PIL._tkinter_finder', 'fitz', 'numpy', 'tkinterdnd2']
 
-# CUMA 1.100.29 - macOS one-folder autocontido.
+# CUMA 1.100.30 - macOS one-folder autocontido.
 # Primeira etapa: pasta autocontida CUMA_macos. Um .app/.dmg assinado pode ser feito depois.
 a = Analysis(['cuma.py'], pathex=[], binaries=[], datas=datas, hiddenimports=hiddenimports,
              hookspath=[], hooksconfig={}, runtime_hooks=[], excludes=[], noarchive=False)

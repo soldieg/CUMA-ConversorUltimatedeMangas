@@ -3,7 +3,7 @@ set -euo pipefail
 TOOLS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$TOOLS_DIR/../.." && pwd)"
 ZIP_DIR="$ROOT_DIR/ZIP final/Linux"
-APP_VERSION="1.100.29"
+APP_VERSION="1.100.30"
 OUT_DIR="dist/CUMA_linux"
 TAR_NAME="CUMA_linux.tar.gz"
 TAR_PATH="$ZIP_DIR/$TAR_NAME"
@@ -64,6 +64,10 @@ chmod +x "$OUT_DIR/cuma" "$OUT_DIR/cuma_updater"
 rm -f "$TAR_PATH"
 tar -C dist -czf "$TAR_PATH" CUMA_linux
 
-python scripts/preparar_manifesto_release.py soldieg CUMA "$APP_VERSION" "$TAR_PATH" Stable "$RELEASE_NOTES" linux || true
+if [ -f "scripts/preparar_manifesto_release.py" ]; then
+  python scripts/preparar_manifesto_release.py soldieg CUMA "$APP_VERSION" "$TAR_PATH" Stable "$RELEASE_NOTES" linux || true
+else
+  echo "[AVISO] scripts/preparar_manifesto_release.py nao encontrado; pulando stable.json."
+fi
 
 echo "OK: $TAR_PATH"

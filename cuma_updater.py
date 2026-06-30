@@ -49,7 +49,7 @@ def _message_box(title: str, text: str, error: bool = False) -> None:
 def _safe_log(path: Path | list[Path] | tuple[Path, ...] | set[Path] | None, message: str) -> None:
     """Grava log seguro.
 
-    A partir da 1.100.29, o atualizador grava o mesmo evento em mais de um lugar:
+    A partir da 1.100.30, o atualizador grava o mesmo evento em mais de um lugar:
     - log temporário do update atual;
     - log persistente ao lado do CUMA instalado.
     """
@@ -370,7 +370,7 @@ def run_update(request_path: Path) -> int:
 
     work_dir = request_path.parent
     extract_dir = work_dir / "extraido"
-    # 1.100.29: backup único substituído a cada atualização.
+    # 1.100.30: backup único substituído a cada atualização.
     backup_dir = install_dir.parent / "CUMA_backup_anterior"
     persistent_log = Path(request.get("persistent_log_path") or _persistent_update_log_path(install_dir)).resolve()
     log_path = [work_dir / "CUMA_update.log", persistent_log]
@@ -561,7 +561,7 @@ def _download_file(url: str, dest: Path, expected_size: int = 0, progress_cb=Non
     dest.parent.mkdir(parents=True, exist_ok=True)
     req = urllib.request.Request(
         str(url),
-        headers={"User-Agent": "CUMA-External-Updater/1.100.29"},
+        headers={"User-Agent": "CUMA-External-Updater/1.100.30"},
     )
     downloaded = 0
     last_report = 0.0
@@ -659,7 +659,7 @@ def _fetch_manifest(manifest_url: str) -> dict:
 
     req = urllib.request.Request(
         str(manifest_url or DEFAULT_MANIFEST_URL),
-        headers={"User-Agent": "CUMA-External-Update-Checker/1.100.29"},
+        headers={"User-Agent": "CUMA-External-Update-Checker/1.100.30"},
     )
     with urllib.request.urlopen(req, timeout=15) as resp:
         return json.loads(resp.read().decode("utf-8"))

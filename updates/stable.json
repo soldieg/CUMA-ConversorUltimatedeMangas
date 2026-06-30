@@ -1,7 +1,7 @@
 {
   "app_id": "cuma",
   "channel": "stable",
-  "version": "1.100.29",
+  "version": "1.100.30",
   "minimum_supported_version": "1.080.0",
   "mandatory": false,
   "published_at": "2026-06-30",

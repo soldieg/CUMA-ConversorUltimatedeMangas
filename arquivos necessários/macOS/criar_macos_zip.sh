@@ -3,7 +3,7 @@ set -euo pipefail
 TOOLS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$TOOLS_DIR/../.." && pwd)"
 ZIP_DIR="$ROOT_DIR/ZIP final/macOS"
-APP_VERSION="1.100.29"
+APP_VERSION="1.100.30"
 OUT_DIR="dist/CUMA_macos"
 ZIP_NAME="CUMA_macos.zip"
 ZIP_PATH="$ZIP_DIR/$ZIP_NAME"
@@ -64,6 +64,10 @@ chmod +x "$OUT_DIR/cuma" "$OUT_DIR/cuma_updater"
 rm -f "$ZIP_PATH"
 (cd dist && zip -r "$ZIP_PATH" CUMA_macos)
 
-python scripts/preparar_manifesto_release.py soldieg CUMA "$APP_VERSION" "$ZIP_PATH" Stable "$RELEASE_NOTES" macos || true
+if [ -f "scripts/preparar_manifesto_release.py" ]; then
+  python scripts/preparar_manifesto_release.py soldieg CUMA "$APP_VERSION" "$ZIP_PATH" Stable "$RELEASE_NOTES" macos || true
+else
+  echo "[AVISO] scripts/preparar_manifesto_release.py nao encontrado; pulando stable.json."
+fi
 
 echo "OK: $ZIP_PATH"

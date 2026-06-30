@@ -62,7 +62,7 @@ except Exception:
     DND_AVAILABLE = False
 
 APP_NAME = "CUMA"
-APP_VERSION = "1.100.29 CUMA"
+APP_VERSION = "1.100.30 CUMA"
 CONFIG_FILE = "config_cuma.json"
 LOG_FILE = "CUMA.log"
 MANUAL_FILE = "manual_do_programa.txt"
@@ -2106,7 +2106,7 @@ def _base_main() -> None:
 # uma nova atualização visual.
 # =============================================================================
 APP_DISPLAY_NAME = "CUMA"
-APP_DISPLAY_VERSION = "1.100.29"
+APP_DISPLAY_VERSION = "1.100.30"
 APP_SUBTITLE = "Limpeza, exportação e conversão de PDFs, imagens, EPUB e XTCH."
 INTERFACE_MAINTENANCE_RULE = (
     "Sempre que houver nova atualização visual, a interface antiga deve ser removida "
@@ -3121,7 +3121,7 @@ def cuma_calculate_dynamic_version(base_version: str = CUMA_BASE_VERSION, update
         patch += 1
     return f'{major}.{minor}.{feature}.{recovery}.{patch}'
 
-APP_DISPLAY_VERSION = "1.100.29"
+APP_DISPLAY_VERSION = "1.100.30"
 
 
 def cuma_register_version_event(update_scale: str, description: str) -> None:
@@ -3711,7 +3711,7 @@ except Exception:
 # =============================================================================
 # CUMA 1.0.6.1.5 - CONVERTER REORGANIZADO + PERFIS DE DISPOSITIVO + UPDATE
 # =============================================================================
-CUMA_CONVERTER_DEVICE_UPDATE_VERSION = "1.100.29"
+CUMA_CONVERTER_DEVICE_UPDATE_VERSION = "1.100.30"
 APP_DISPLAY_VERSION = CUMA_CONVERTER_DEVICE_UPDATE_VERSION
 APP_VERSION = CUMA_CONVERTER_DEVICE_UPDATE_VERSION + ' CUMA'
 APP_NAME = 'CUMA'
@@ -27174,16 +27174,16 @@ def _cuma_11024_install() -> None:
 _cuma_11024_install()
 
 # =============================================================================
-# CUMA 1.100.29 - DEBUG DE LOGS E BACKUP ÚNICO DO ATUALIZADOR
+# CUMA 1.100.30 - DEBUG DE LOGS E BACKUP ÚNICO DO ATUALIZADOR
 # =============================================================================
 # Esta camada reforça:
-# - versionamento visível 1.100.29;
+# - versionamento visível 1.100.30;
 # - título principal somente "CUMA";
 # - diagnóstico de onde ficam os logs;
 # - log persistente do atualizador em CUMA_update.log;
 # - preparação para backup único/substituído pelo cuma_updater.py.
 
-CUMA_11025_VERSION = "1.100.29"
+CUMA_11025_VERSION = "1.100.30"
 CUMA_11025_DATE = "2026-06-25"
 
 
@@ -27457,11 +27457,11 @@ def _cuma_11025_ensure_manual() -> Path:
             base = manual_path().read_text(encoding="utf-8")
         except Exception:
             base = globals().get("CUMA_11013_MANUAL_TEXT", "")
-        if "ATUALIZAÇÃO 1.100.29 - DEBUG DE LOGS E BACKUP ÚNICO" not in base:
+        if "ATUALIZAÇÃO 1.100.30 - DEBUG DE LOGS E BACKUP ÚNICO" not in base:
             base += f"""
 
 ===============================================================================
-ATUALIZAÇÃO 1.100.29 - DEBUG DE LOGS E BACKUP ÚNICO
+ATUALIZAÇÃO 1.100.30 - DEBUG DE LOGS E BACKUP ÚNICO
 ===============================================================================
 
 - O log geral do programa fica em CUMA.log ao lado do executável/script.
@@ -27500,7 +27500,7 @@ def _cuma_11025_install() -> None:
             pass
     except Exception as exc:
         try:
-            _cuma_11025_write_log(f"Falha ao instalar camada 1.100.29: {exc}")
+            _cuma_11025_write_log(f"Falha ao instalar camada 1.100.30: {exc}")
         except Exception:
             pass
 
@@ -27509,15 +27509,15 @@ _cuma_11025_install()
 
 
 # =============================================================================
-# CUMA 1.100.29 - PREPARAÇÃO MULTIPLATAFORMA AUTOCONTIDA
+# CUMA 1.100.30 - PREPARAÇÃO MULTIPLATAFORMA AUTOCONTIDA
 # =============================================================================
 # Esta camada não muda a interface nem as funções principais. Ela centraliza:
-# - versionamento visível 1.100.29;
+# - versionamento visível 1.100.30;
 # - nomes corretos do executável principal e do atualizador por plataforma;
 # - comando do atualizador compatível com Windows, Linux e macOS;
 # - diagnóstico de empacotamento autocontido.
 
-CUMA_11026_VERSION = "1.100.29"
+CUMA_11026_VERSION = "1.100.30"
 CUMA_11026_DATE = "2026-06-26"
 
 
@@ -27692,11 +27692,11 @@ def _cuma_11026_ensure_manual() -> Path:
             base = manual_path().read_text(encoding="utf-8")
         except Exception:
             base = globals().get("CUMA_11013_MANUAL_TEXT", "")
-        if "ATUALIZAÇÃO 1.100.29 - MULTIPLATAFORMA AUTOCONTIDA" not in base:
+        if "ATUALIZAÇÃO 1.100.30 - MULTIPLATAFORMA AUTOCONTIDA" not in base:
             base += f"""
 
 ===============================================================================
-ATUALIZAÇÃO 1.100.29 - MULTIPLATAFORMA AUTOCONTIDA
+ATUALIZAÇÃO 1.100.30 - MULTIPLATAFORMA AUTOCONTIDA
 ===============================================================================
 
 - O CUMA continua autocontido no Windows por PyInstaller one-folder.
@@ -27735,7 +27735,7 @@ def _cuma_11026_install() -> None:
             pass
     except Exception as exc:
         try:
-            write_log(f"Falha ao instalar camada 1.100.29: {exc}")
+            write_log(f"Falha ao instalar camada 1.100.30: {exc}")
         except Exception:
             pass
 
@@ -27744,10 +27744,10 @@ _cuma_11026_install()
 
 
 # =============================================================================
-# CUMA 1.100.29 - DEBUG DE VERSIONAMENTO VISUAL E TÍTULO REAL DA JANELA
+# CUMA 1.100.30 - DEBUG DE VERSIONAMENTO VISUAL E TÍTULO REAL DA JANELA
 # =============================================================================
 # Diagnóstico:
-# - A versão 1.100.29 atualizava constantes e manifesto, mas ainda havia pontos
+# - A versão 1.100.30 atualizava constantes e manifesto, mas ainda havia pontos
 #   antigos capazes de escrever título/versão visual antes ou depois dos hooks.
 # - Alguns cartões de versão também podiam ser preenchidos por helpers antigos
 #   que usavam CUMA_11025_VERSION/CUMA_11026_VERSION.
@@ -27755,16 +27755,16 @@ _cuma_11026_install()
 # - O título da janela principal passa a ser fixado como "CUMA" no método original
 #   e novamente em setup_window/build/apply_theme/show_page/poll.
 # - Todas as constantes visuais e helpers CUMA_11xxx_VERSION são alinhados para
-#   1.100.29 antes da interface abrir.
+#   1.100.30 antes da interface abrir.
 # - O cartão visual "Versão" é atualizado após a construção da interface.
 
-CUMA_11027_VERSION = "1.100.29"
+CUMA_11027_VERSION = "1.100.30"
 CUMA_11027_DATE = "2026-06-27"
 
 
 def _cuma_11027_log(message: str, exc: Exception | None = None) -> None:
     try:
-        full = f"[1.100.29] {message}"
+        full = f"[1.100.30] {message}"
         if exc is not None:
             full += f": {exc.__class__.__name__}: {exc}"
         write_log(full)
@@ -27974,11 +27974,11 @@ def _cuma_11027_install() -> None:
         App.poll = _cuma_11027_poll
 
         try:
-            write_log("CUMA 1.100.29 camada de versionamento visual instalada.")
+            write_log("CUMA 1.100.30 camada de versionamento visual instalada.")
         except Exception:
             pass
     except Exception as exc:
-        _cuma_11027_log("Falha ao instalar camada 1.100.29", exc)
+        _cuma_11027_log("Falha ao instalar camada 1.100.30", exc)
 
 
 _cuma_11027_install()
@@ -27987,9 +27987,9 @@ _cuma_11027_install()
 
 
 # =============================================================================
-# CUMA 1.100.29 - LIMPEZA DE PACOTE E GARANTIA FINAL DE VERSIONAMENTO
+# CUMA 1.100.30 - LIMPEZA DE PACOTE E GARANTIA FINAL DE VERSIONAMENTO
 # =============================================================================
-CUMA_11029_VERSION = "1.100.29"
+CUMA_11029_VERSION = "1.100.30"
 CUMA_11029_DATE = "2026-06-30"
 
 def _cuma_11029_apply_globals() -> None:
@@ -28088,7 +28088,7 @@ def _cuma_11029_install() -> None:
         App.apply_theme = _cuma_11029_apply_theme
         App.show_page = _cuma_11029_show_page
         try:
-            write_log("CUMA 1.100.29 camada final de versionamento/estrutura instalada.")
+            write_log("CUMA 1.100.30 camada final de versionamento/estrutura instalada.")
         except Exception:
             pass
     except Exception:

@@ -5,7 +5,7 @@ title CUMA - Build Windows autocontido
 set "TOOLS_DIR=%~dp0"
 set "ROOT_DIR=%~dp0..\.."
 set "ZIP_DIR=%ROOT_DIR%\ZIP final\Windows"
-set "APP_VERSION=1.100.29"
+set "APP_VERSION=1.100.30"
 set "OUT_DIR=dist\CUMA_windows"
 set "ZIP_NAME=CUMA_windows.zip"
 set "ZIP_PATH=%ZIP_DIR%\%ZIP_NAME%"
@@ -100,10 +100,21 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path '
 if errorlevel 1 exit /b 1
 
 echo Atualizando manifesto para Windows...
-python scripts\preparar_manifesto_release.py soldieg CUMA %APP_VERSION% "%ZIP_PATH%" Stable "%RELEASE_NOTES%" windows
-if errorlevel 1 echo [AVISO] Nao foi possivel atualizar stable.json.
+if exist "scripts\preparar_manifesto_release.py" (
+  python "scripts\preparar_manifesto_release.py" soldieg CUMA %APP_VERSION% "%ZIP_PATH%" Stable "%RELEASE_NOTES%" windows
+  if errorlevel 1 (
+    echo [AVISO] Nao foi possivel atualizar stable.json.
+    rem Manifesto e opcional no GitHub Actions; nao pode derrubar o artifact.
+    cmd /c exit /b 0
+  )
+) else (
+  echo [AVISO] scripts\preparar_manifesto_release.py nao encontrado; pulando stable.json.
+  rem Em alguns layouts de CI o pacote ja deve ser enviado como artifact mesmo sem manifesto local.
+  cmd /c exit /b 0
+)
 
 echo.
 echo OK: %ZIP_PATH%
 if "%CI%"=="" pause
 endlocal
+exit /b 0

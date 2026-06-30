@@ -1,6 +1,9 @@
-pymupdf
-numpy
-pillow
+pymupdf>=1.24.0,<2.0
+numpy>=1.26.0,<3.0
+pillow>=10.0.0,<13.0
 # Opcional para arrastar-e-soltar; se faltar, o CUMA abre normalmente sem DnD.
-tkinterdnd2
-pyinstaller
+tkinterdnd2>=0.4.2,<1.0
+pyinstaller>=6.0,<7.0
+
+# Opcional: OpenCV/CUDA é usado apenas para diagnóstico de GPU quando disponível.
+# opencv-python-headless>=4.9,<5.0
