@@ -10,8 +10,8 @@ set "PLATFORM=%~5"
 
 if "%SRC_DIR%"=="" set "SRC_DIR=%~dp0..\GitHub"
 if "%ZIP_FILE%"=="" set "ZIP_FILE=%~dp0..\ZIP final\Windows\CUMA_windows.zip"
-if "%APP_VERSION%"=="" set "APP_VERSION=1.100.27"
-if "%NOTES_FILE%"=="" set "NOTES_FILE=NOTAS_RELEASE_1.100.27_GITHUB.txt"
+if "%APP_VERSION%"=="" set "APP_VERSION=1.100.29"
+if "%NOTES_FILE%"=="" set "NOTES_FILE=NOTAS_RELEASE.md"
 if "%PLATFORM%"=="" set "PLATFORM=windows"
 
 if not exist "%SRC_DIR%\cuma.py" (

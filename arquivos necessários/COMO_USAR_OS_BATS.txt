@@ -1,4 +1,4 @@
-CUMA 1.100.27 - scripts de build autocontidos
+CUMA 1.100.29 - scripts de build autocontidos
 ==============================================
 
 Estrutura:

@@ -4,23 +4,34 @@ chcp 65001 >nul
 title CUMA - Build Windows autocontido
 set "TOOLS_DIR=%~dp0"
 set "ROOT_DIR=%~dp0..\.."
-set "SRC_DIR=%ROOT_DIR%\GitHub"
 set "ZIP_DIR=%ROOT_DIR%\ZIP final\Windows"
-set "APP_VERSION=1.100.27"
+set "APP_VERSION=1.100.29"
 set "OUT_DIR=dist\CUMA_windows"
 set "ZIP_NAME=CUMA_windows.zip"
 set "ZIP_PATH=%ZIP_DIR%\%ZIP_NAME%"
-set "RELEASE_NOTES=NOTAS_RELEASE_1.100.27_GITHUB.txt"
+set "RELEASE_NOTES=NOTAS_RELEASE.md"
 
-if not exist "%SRC_DIR%\cuma.py" (
-  echo [ERRO] cuma.py nao encontrado em "%SRC_DIR%".
-  pause
+rem Suporta layouts:
+rem 1) GitHub Actions / repositorio: ROOT\cuma.py
+rem 2) pacote novo:                  ROOT\Repositorio_GitHub\cuma.py
+rem 3) pacote antigo:                ROOT\GitHub\cuma.py
+set "SRC_DIR="
+if exist "%ROOT_DIR%\cuma.py" set "SRC_DIR=%ROOT_DIR%"
+if not defined SRC_DIR if exist "%ROOT_DIR%\Repositorio_GitHub\cuma.py" set "SRC_DIR=%ROOT_DIR%\Repositorio_GitHub"
+if not defined SRC_DIR if exist "%ROOT_DIR%\GitHub\cuma.py" set "SRC_DIR=%ROOT_DIR%\GitHub"
+
+if not defined SRC_DIR (
+  echo [ERRO] cuma.py nao encontrado.
+  echo Procurado em:
+  echo   "%ROOT_DIR%\cuma.py"
+  echo   "%ROOT_DIR%\Repositorio_GitHub\cuma.py"
+  echo   "%ROOT_DIR%\GitHub\cuma.py"
+  if "%CI%"=="" pause
   exit /b 1
 )
 
 if not exist "%ZIP_DIR%" mkdir "%ZIP_DIR%"
 cd /d "%SRC_DIR%"
-
 where python >nul 2>nul
 if errorlevel 1 (
   echo [ERRO] Python 3.11+ nao encontrado para compilar.
@@ -67,8 +78,8 @@ if exist "manual_do_programa.txt" copy /Y "manual_do_programa.txt" "%OUT_DIR%\ma
 if exist "LEIA-ME.txt" copy /Y "LEIA-ME.txt" "%OUT_DIR%\LEIA-ME.txt" >nul
 if exist "README.md" copy /Y "README.md" "%OUT_DIR%\README.md" >nul
 if exist "LICENSE" copy /Y "LICENSE" "%OUT_DIR%\LICENSE" >nul
-if exist "NOTAS_RELEASE_1.100.27_GITHUB.txt" copy /Y "NOTAS_RELEASE_1.100.27_GITHUB.txt" "%OUT_DIR%\NOTAS_RELEASE_1.100.27_GITHUB.txt" >nul
-if exist "AUDITORIA_DEBUG_1.100.27.txt" copy /Y "AUDITORIA_DEBUG_1.100.27.txt" "%OUT_DIR%\AUDITORIA_DEBUG_1.100.27.txt" >nul
+if exist "NOTAS_RELEASE.md" copy /Y "NOTAS_RELEASE.md" "%OUT_DIR%\NOTAS_RELEASE.md" >nul
+if exist "AUDITORIA_DEBUG.md" copy /Y "AUDITORIA_DEBUG.md" "%OUT_DIR%\AUDITORIA_DEBUG.md" >nul
 
 for %%F in (cuma_settings_template.json cuma_logo.png app_icon.ico) do (
   if exist "%OUT_DIR%\%%F" (
