@@ -1,23 +1,48 @@
 {
   "app_id": "cuma",
   "channel": "stable",
-  "version": "1.100.27",
+  "version": "1.100.29",
   "minimum_supported_version": "1.080.0",
   "mandatory": false,
-  "published_at": "2026-06-30T18:00:03Z",
+  "published_at": "2026-06-30",
   "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip",
-  "sha256": "3A12003D69397B882E5BF8383AC904AA2CD7C9B916862CEF3E03BD98A80BB059",
-  "size_bytes": 65919341,
+  "sha256": "COLOQUE_O_SHA256_DO_ZIP_AQUI",
+  "size_bytes": 0,
   "release_notes": [
-    "Modificações da versão 1.100.27:",
-    "Adicionado log detalhado do atualizador.",
-    "Backup de atualização agora é único e substituído a cada nova atualização.",
-    "Preparada estrutura multiplataforma para Windows, Linux e macOS.",
-    "Adicionados scripts separados por plataforma.",
-    "Adicionado workflow GitHub Actions para builds multiplataforma.",
-    "Atualizador preparado para baixar pacote correto por sistema operacional.",
-    "Corrigido bug em que a versão visual do aplicativo não era atualizada.",
-    "Título principal da janela mantido como “CUMA”.",
-    "Versionamento interno e visual alinhado para 1.100.27."
-  ]
+    "Limpeza da estrutura do pacote.",
+    "Pasta principal renomeada para Repositorio_GitHub.",
+    "Notas de release consolidadas em NOTAS_RELEASE.md.",
+    "Auditorias consolidadas em AUDITORIA_DEBUG.md.",
+    "Removidos arquivos temporários e duplicados.",
+    "Scripts de build ajustados para usar arquivos consolidados."
+  ],
+  "build_manifest_note": "Manifesto multiplataforma. Publique CUMA_windows.zip, CUMA_linux.tar.gz e CUMA_macos.zip na Release Stable. Cada pacote deve ser gerado na própria plataforma ou pelo GitHub Actions.",
+  "platforms": {
+    "windows": {
+      "asset_name": "CUMA_windows.zip",
+      "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_windows.zip",
+      "sha256": "COLOQUE_O_SHA256_DO_PACOTE_AQUI",
+      "size_bytes": 0,
+      "archive_type": "zip",
+      "main_exe_name": "cuma.exe"
+    },
+    "linux": {
+      "asset_name": "CUMA_linux.tar.gz",
+      "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_linux.tar.gz",
+      "sha256": "COLOQUE_O_SHA256_DO_PACOTE_AQUI",
+      "size_bytes": 0,
+      "archive_type": "tar.gz",
+      "main_exe_name": "cuma"
+    },
+    "macos": {
+      "asset_name": "CUMA_macos.zip",
+      "download_url": "https://github.com/soldieg/CUMA/releases/download/Stable/CUMA_macos.zip",
+      "sha256": "COLOQUE_O_SHA256_DO_PACOTE_AQUI",
+      "size_bytes": 0,
+      "archive_type": "zip",
+      "main_exe_name": "cuma"
+    }
+  },
+  "archive_type": "zip",
+  "main_exe_name": "cuma.exe"
 }
