@@ -17,8 +17,7 @@ jobs:
       - name: Build Windows
         shell: cmd
         run: |
-          cd "arquivos necessários\Windows"
-          call criar_windows.bat
+          call "arquivos necessários\Windows\criar_windows.bat"
       - uses: actions/upload-artifact@v4
         with:
           name: CUMA_windows
